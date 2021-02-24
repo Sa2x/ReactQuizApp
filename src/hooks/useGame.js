@@ -16,5 +16,6 @@ export const useGame = (questions) => {
     setOver(false);
     setRound(0);
   };
+
   return { round, nextRound, over, newGame };
 };
