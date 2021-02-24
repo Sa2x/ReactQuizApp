@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
+import Layout from "./pages/Layout";
+import { Provider } from "react-redux";
+import Questions from "./pages/Questions";
+import Game from "./pages/Game";
+import store from "./redux/store";
+import HighScore from "./pages/HighScore";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    document.title = "Quiz App";
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Switch>
+          <Layout>
+            <Route exact path="/">
+              <Redirect to="/game" />
+            </Route>
+            <Route path="/game">
+              <Game />
+            </Route>
+            <Route path="/questions">
+              <Questions />
+            </Route>
+            <Route path="/highscore">
+              <HighScore />
+            </Route>
+          </Layout>
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

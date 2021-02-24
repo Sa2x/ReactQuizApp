@@ -1,38 +1,358 @@
-.App {
-  text-align: center;
+html,
+body {
+  height: 100vh;
+  background-color: #7899d4;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.answerBasic {
+  background-color: #a0c0f770;
+  border-radius: 0.7rem;
+  width: 300px;
+  /* height: 30px; */
+  display: flex;
+  /* margin: 0.2rem; */
+  padding: 0.3rem;
+  align-items: center;
+  justify-content: center;
+  word-break: break-all;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.answerChosen {
+  background-color: #7899d4;
+  border-radius: 0.7rem;
+  font-weight: bold;
+  width: 300px;
+  /* height: 30px; */
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-all;
+  margin-bottom: 4px;
+}
+
+.header {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  top: 0px;
+  left: 0px;
+  background-color: #25283d;
+  color: white;
+  width: 100%;
+}
+
+.header a {
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+}
+.header .navigations {
+  justify-self: flex-start;
+}
+.header .title {
+  padding-right: 0.5rem;
+  font-style: italic;
+  justify-self: flex-end;
+}
+.header a:hover {
+  background: #25287f;
+  color: white;
+}
+
+.questionlist {
+  padding-top: 50px;
+}
+.newgamepanel {
+  height: 50vh;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.newgamepanel p {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 300%;
+}
+.newgamepanel .newgameform {
+  display: flex;
+  flex-direction: column;
+}
+.newgamepanel .newgameform button {
+  height: 4vh;
+  font-size: large;
+}
+.newgamepanel .newgameform input {
+  height: 4vh;
+  font-size: large;
+}
+
+.gamepanel {
+  height: 100vh;
+
+  padding-top: 50px;
+}
+.gamepanel .infopanel {
+  width: 200px;
+  min-width: 200px;
+  border: 2px solid #25287f;
+  background-color: white;
+  border-radius: 0.7rem;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+.gamepanel .main {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gamepanel .main .questioningame {
+  background-color: white;
+  width: 400px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.7rem;
+}
+.gamepanel .main .questioningame .answers {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.gamepanel .main .questioningame .top {
+  background-color: #25287f;
+  border-top-left-radius: 0.7rem;
+  border-top-right-radius: 0.7rem;
+  color: white;
+  width: 100%;
+}
+
+.gamepanel .main .questioningame .top p:nth-child(1) {
+  padding-left: 1rem;
+  font-size: large;
+}
+
+.gamepanel .main .questioningame .bottom {
+  background-color: #25287f;
+  border-bottom-left-radius: 0.7rem;
+  border-bottom-right-radius: 0.7rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  width: 100%;
+}
+.gamepanel .main .questioningame .bottom button:nth-child(1) {
+  margin-left: 1rem;
+  height: 3vh;
+  font-size: medium;
+}
+.gamepanel .main .questioningame .bottom button:nth-child(2) {
+  margin-right: 1rem;
+  height: 3vh;
+  font-size: medium;
+}
+.newquestion {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  min-width: 600px;
+  margin: 0.2rem;
+  padding: 0.2rem;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+}
+
+.newquestion label {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  font-weight: bold;
+}
+.newquestion button {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  width: 200px;
+  min-width: 200px;
+  align-self: center;
+}
+.newquestion input {
+  width: 200px;
+  min-width: 200px;
+  margin-left: 0.5rem;
+}
+
+.newquestion select {
+  width: 40px;
+  margin-left: 0.5rem;
+}
+
+.newquestion .answerbox {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media only screen and (max-width: 1000px) {
+  .newquestion {
+    width: 600px;
+    min-width: 600px;
+  }
+  .newquestion .answerbox {
+    flex-wrap: nowrap;
+    flex-direction: column;
   }
 }
+.newquestion .answerbox label {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.questionview {
+  background-color: white;
+  width: 400px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.7rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.questionview .top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #25287f;
+  border-top-left-radius: 0.7rem;
+  border-top-right-radius: 0.7rem;
+  color: white;
+  width: 100%;
+}
+
+.questionview .top .name {
+  font-weight: bold;
+  justify-self: flex-start;
+  word-break: break-all;
+  padding-left: 1rem;
+}
+
+.questionview .top .delete {
+  font-weight: bold;
+  justify-self: flex-end;
+  border-top-right-radius: 0.7rem;
+  padding: 1rem;
+  height: 100%;
+  margin: 0;
+}
+.questionview .top .delete:hover {
+  background-color: #a0c0f770;
+  cursor: pointer;
+}
+.questionview table {
+  margin: 0;
+}
+
+.endgamepanel {
+  height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.endgamepanel button {
+  height: 4vh;
+  font-size: large;
+}
+
+.endgamepanel p {
+  font-size: large;
+  font-weight: bold;
+}
+.questionview table tr td:nth-child(1) {
+  width: 30px;
+  padding: 0;
+  font-weight: bold;
+  border-right: 1px solid #25283d;
+}
+.questionview table tr td:nth-child(2) {
+  word-break: break-all;
+}
+
+.questionview .bottom {
+  font-weight: bold;
+  background-color: #25287f;
+  border-bottom-left-radius: 0.7rem;
+  border-bottom-right-radius: 0.7rem;
   color: white;
+  width: 100%;
+}
+.questionview .bottom .solution {
+  padding-left: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.noquestions {
+  padding-top: 50px;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-align: center;
+}
+.noquestions p {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 300%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.highscore {
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+table {
+  background-color: white;
+  border-radius: 0.6rem;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+th {
+  padding: 0.8rem 3rem;
+  background-color: #25287f;
+  color: #fff;
+}
+
+th:nth-child(1) {
+  border-top-left-radius: 0.6rem;
+}
+
+th:nth-child(2) {
+  border-top-right-radius: 0.6rem;
+}
+
+td {
+  padding: 0.8rem 3rem;
+  text-align: center;
+}
+
+tr:nth-child(2n) {
+  background-color: #a0c0f770;
 }
