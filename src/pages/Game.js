@@ -16,7 +16,7 @@ const Game = () => {
     if (over) {
       endGame();
     }
-  }, [over]);
+  }, [over, endGame]);
 
   if (questions.length !== 0) {
     if (user) {
